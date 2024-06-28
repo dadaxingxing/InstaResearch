@@ -1,2 +1,3 @@
 venv
 login.env
+__pycache__
