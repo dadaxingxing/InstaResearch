@@ -1,4 +1,6 @@
 from instagrapi import Client
+from dotenv import dotenv_values
+
 
 def login_user(check, USERNAME, PASSWORD):
     cl = Client()
@@ -20,3 +22,9 @@ def login_user(check, USERNAME, PASSWORD):
         print('Could not login, error occured.')  
         return None
 
+config = dotenv_values('login.env')
+USERNAME = config['USERNAME']
+PASSWORD = config['PASSWORD']
+
+print(USERNAME, PASSWORD)
+# cl = login_user(True, )
