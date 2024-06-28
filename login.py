@@ -1,3 +1,5 @@
+from instagrapi import Client
+
 def login_user(check, USERNAME, PASSWORD):
     cl = Client()
     try:
