@@ -6,8 +6,10 @@ from process import process_info
 config = dotenv_values('login.env')
 USERNAME = config['USERNAME']
 PASSWORD = config['PASSWORD']
-
 cl = login_user(True, USERNAME, PASSWORD)
-data = cl.user_medias_gql('10642672448', 4, 2)
 
+USER_USERNAME = input('Enter the instagram username: ')
+USER_ID = cl.user_info_by_username_v1(USER_USERNAME)
+
+data = cl.user_medias_gql(USER_ID.pk, 20, 2)
 print(process_info(data))
