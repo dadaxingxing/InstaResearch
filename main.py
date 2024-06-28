@@ -1,7 +1,22 @@
-from instagram_web_api import Client, ClientCompatPatch, ClientError, ClientLoginError
+from instagrapi import Client
 
-# Without any authentication
-web_api = Client(auto_patch=True, drop_incompat_keys=False)
-user_feed_info = web_api.user_feed('329452045', count=10)
-for post in user_feed_info:
-    print('%s from %s' % (post['link'], post['user']['username']))
+def login_user(check, USERNAME, PASSWORD):
+    cl = Client()
+    try:
+        if check:
+            cl.load_settings('session.json')
+            cl.login(USERNAME, PASSWORD)
+            cl.get_timeline_feed()
+            # except Exception as e:
+            #     cl.login(USERNAME, PASSWORD)
+            #     cl.dump_settings('session.json')
+        else:
+            cl.login(USERNAME, PASSWORD)
+            cl.dump_settings('session.json')
+
+        return cl
+    
+    except Exception as e:
+        print('Could not login, error occured.')  
+        return None
+
