@@ -1,1 +1,14 @@
+annotated-types==0.7.0
+certifi==2024.6.2
+charset-normalizer==3.3.2
+idna==3.7
 instagram_private_api @ git+https://git@github.com/ping/instagram_private_api.git@1d70e99bc11591161b0cd71cff3f0c08cd04b34f
+instagrapi==2.1.2
+pillow==10.3.0
+pycryptodomex==3.20.0
+pydantic==2.7.1
+pydantic_core==2.18.2
+PySocks==1.7.1
+requests==2.32.3
+typing_extensions==4.12.2
+urllib3==2.2.2
