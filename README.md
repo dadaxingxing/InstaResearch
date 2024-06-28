@@ -1,2 +1,2 @@
 # InstaResearch
-A tool to get the most viral pieces of a pages post by sorting all the post of a given instagram page by its likes.
+A tool that identifies the most viral content on an Instagram page by sorting posts in descending order of likes.
