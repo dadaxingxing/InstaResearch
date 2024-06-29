@@ -1,8 +1,8 @@
 def process_info(data):
     posts = []
     for i in range(len(data)):
-        posts.append({'Link': f'https://www.instagram.com/p/{data[i].code}', 'Likes': data[i].like_count})
-    posts.sort(key=lambda post: post['Likes'], reverse=True)
+        posts.append({'link': f'https://www.instagram.com/p/{data[i].code}', 'likes': data[i].like_count})
+    posts.sort(key=lambda post: post['likes'], reverse=True)
     
     return posts
 
