@@ -20,4 +20,4 @@ data = cl.user_medias_gql(USER_INFO['pk'], USER_POSTNUM if USER_POSTNUM != -1 el
 
 processed = process_info(data)
 for i in range(len(processed)):
-    print(f'{i + 1}. Link: {processed[i]['link']}, Likes: {processed[i]['likes']}')
+    print(f"{i + 1}. Link: {processed[i]['link']}, Likes: {processed[i]['likes']}")
