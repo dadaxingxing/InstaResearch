@@ -1,6 +1,10 @@
 from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi
 from dotenv import dotenv_values
+from pprint import pprint
+from bson import ObjectId
+import re
+import bson
 
 #todo: need to add trouble shooting/try & except
 
@@ -16,12 +20,13 @@ def retrive():
     _, _, cur_user, valid_pages = config()
 
     i = 1
-    page = input(f'please pick a valid page >> {valid_pages}: ')
+    page = str(input(f'please pick a valid page >> {valid_pages}: '))
     for link, likes in (cur_user.find_one({page : {"$exists": True}}))[page]:
         print(f'rank: {i}, link: {link}, like: {likes}')
         i += 1
 
 def update(add_page_name, page_info):
+    add_page_name = re.sub(r'[.]', '_', add_page_name)
     cl, db, cur_user, valid_pages = config()
     page_info = [(post['link'], post['likes']) for post in page_info]
 
