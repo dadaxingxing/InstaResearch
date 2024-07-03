@@ -4,6 +4,7 @@ from login import login_user
 from process import process_info
 import time
 from db import update
+
 start_time = time.time()
 
 config = dotenv_values('login.env')
@@ -27,8 +28,9 @@ for i in range(len(processed)):
     print(f"{i + 1}. Link: {processed[i]['link']}, Likes: {processed[i]['likes']}")
 
 print(f'\nShowing {USER_POSTNUM} of {USER_TOTAL} posts')
-print("Process finished --- %s seconds ---" % (time.time() - start_time))
+print("Scrapping finished --- %s seconds ---" % (time.time() - start_time))
 
+start_time = time.time()
 print('Storing the data into mongo DB...')
-print(USER_INFO)
-# update(processed)
+update(USER_INFO['username'], processed)
+print("Storing finished --- %s seconds ---" % (time.time() - start_time))

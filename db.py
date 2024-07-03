@@ -2,6 +2,7 @@ from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi
 from dotenv import dotenv_values
 
+#todo: need to add trouble shooting/try & except
 
 def config():
     url = f'mongodb+srv://joey:{dotenv_values('login.env')['DATA_PASSWORD']}@cluster0.lqsceha.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'
@@ -31,6 +32,4 @@ def update(add_page_name, page_info):
         cur_user.delete_one({add_page_name: {"$exists": True}})
     
     cur_user.insert_one({add_page_name: page_info})
-
-retrive()
 
